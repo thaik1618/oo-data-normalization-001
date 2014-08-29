@@ -1,5 +1,5 @@
 require_relative "./spec_helper.rb"
-
+require 'pry'
 describe Song do
   it "has a title" do
     song = Song.new
@@ -19,7 +19,8 @@ describe Song do
     song.title = "Night Moves"
     song.artist = Artist.new("Bob Seger")
     song.serialize
-    expect(File.read("night_moves.txt")).to match /Bob Seger - Night Moves/
+    temp_file = Dir["./tmp/*.txt"][0]
+    expect(File.read(temp_file)).to match /Bob Seger - Night Moves/
   end
 
 end
