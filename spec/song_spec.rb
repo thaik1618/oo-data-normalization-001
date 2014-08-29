@@ -21,6 +21,7 @@ describe Song do
     song.serialize
     temp_file = Dir["./tmp/*.txt"][0]
     expect(File.read(temp_file)).to match /Bob Seger - Night Moves/
+    expect(File.basename(temp_file)).to match /night_moves/
   end
 
 end

@@ -1,4 +1,3 @@
-require 'pry'
 require 'tempfile'
 
 class Song
