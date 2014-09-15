@@ -10,4 +10,3 @@ class Song
     f.close
   end
 end
-
