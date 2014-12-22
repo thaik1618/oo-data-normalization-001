@@ -4,7 +4,7 @@
   resources: 3
 ---
 
-# Serialization
+# OO Data Normalization
 
 ## Objectives
 
