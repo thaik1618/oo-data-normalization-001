@@ -1,8 +1,3 @@
----
-tags: todo, serialization, oop
-languages: ruby
-resources: 3
----
 
 # OO Data Normalization
 
@@ -49,8 +44,17 @@ Calling `blank_space.serialize` should then write the following in that new file
 
 `"Taylor Swift - Blank Space"`
 
-## Resources
+## Tempfiles
 
+To create a new `Tempfile`, call `Tempfile.new` with two arguments – a two-element array of the file name and file extension, and the name of the folder in which the temporary file should live. For example:
+
+```ruby
+file = Tempfile.new(["dog", ".txt"], "tmp")
+file.write("I am a dog!")
+file.close
+```
+
+## Resources
 * [Ruby Docs](http://www.ruby-doc.org/) - [TempFile](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/tempfile/rdoc/Tempfile.html)
-* [Sandi Metz's Practical Object-Oriented Design in Ruby: An Agile Primer](http://books.flatironschool.com/books/102) - [Chapters 1 and 2](http://books.flatironschool.com/books/102?page=48), page 26
+
 * [Alvin Alexander's Blog](http://alvinalexander.com/) - [How to Write Text to a File in Ruby](http://alvinalexander.com/blog/post/ruby/how-write-text-to-file-ruby-example)
