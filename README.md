@@ -1,5 +1,4 @@
 
-
 # OO Data Normalization
 
 ![floppy disk](https://s3-us-west-2.amazonaws.com/web-dev-readme-photos/oo-labs/floppy-disk.png)
@@ -44,6 +43,16 @@ The method should sanitize the name of the song and create a new file with that 
 Calling `blank_space.serialize` should then write the following in that new file:
 
 `"Taylor Swift - Blank Space"`
+
+## Tempfiles
+
+To create a new `Tempfile`, call `Tempfile.new` with two arguments – a two-element array of the file name and file extension, and the name of the folder in which the temporary file should live. For example:
+
+```ruby
+file = Tempfile.new(["dog", ".txt"], "tmp")
+file.write("I am a dog!")
+file.close
+```
 
 ## Resources
 * [Ruby Docs](http://www.ruby-doc.org/) - [TempFile](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/tempfile/rdoc/Tempfile.html)
