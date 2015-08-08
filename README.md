@@ -1,11 +1,10 @@
-
 # OO Data Normalization
 
 ![floppy disk](https://s3-us-west-2.amazonaws.com/web-dev-readme-photos/oo-labs/floppy-disk.png)
 
 ## Objectives
 
-Make two classes, Song and Artist. The Song class should have a method `#serialize` that saves a new file to the `tmp` folder. For instance, if the artist's name is Onerepublic and the song is "Counting Stars", the serialize method should save a file called `counting_stars.txt` to the `tmp` folder. The file should countain the string "Onerepublic - Counting Stars".
+Make two classes, Song and Artist. The Song class should have a method `#serialize` that saves a new file to the `tmp` folder. For instance, if the artist's name is Onerepublic and the song is "Counting Stars", the serialize method should save a file called `counting_stars.txt` to the `tmp` folder. The file should contain the string "Onerepublic - Counting Stars".
 
 ## Instructions
 
@@ -36,7 +35,7 @@ If we call:
 blank_space.serialize
 ```
 
-The method should sanitize the name of the song and create a new file with that name, so the file looks like this:
+The method should serialize the name of the song and create a new file with that name, so the file looks like this:
 
 `blank_space.txt`
 
