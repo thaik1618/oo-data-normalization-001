@@ -19,27 +19,48 @@ Ruby makes it easy to write data to a file. Ruby has a built-in [File class](htt
 
 The `.new` method can take in a number of arguments. The first argument is an array. The first element of that array is the file name and the second argument of the array is the file extension/type. The second argument is the desired location of the file. Let's take a look: 
 
-`Tempfile.new(["my_new_file", ".txt"], "desktop/my_aswesome_folder")`
+```ruby
+my_file = Tempfile.new(["my_new_file", ".txt"], "desktop/my_aswesome_folder")
+```
 
+You can then write to that file using the `.write` method. The `.write` method takes in an argument of the content you want to write the the file. Let's take a look:
 
-f = Tempfile.new(["#{new_title}", ".txt"], "tmp")
-    f.write("#{self.artist.name} - #{self.title}")
-    f.close
+```ruby
+my_file.write("some awesome content for my awesome new file")
+```
+
+Use the documentation linked to above, along with the tips outlined here, to solve this lab. 
 
 ## Instructions
 
 This is a test-driven lab. Use the test output and the guidelines below.
 
-* Make two classes, Song and Artist. The Song class should have a method `#slugify` that sanitized the file name and saves a new file to the `tmp` folder. For instance, if the artist's name is Onerepublic and the song is "Counting Stars", the `slufigy` method should save a file called `counting_stars.txt` to the `tmp` folder. The file should contain the string "Onerepublic - Counting Stars".
+### Associating Songs and Artists
+
+* Make two classes, Song and Artist. Songs have an `artist` attr_accessor (i.e. setter and getter) method. An individual artist's `song` attribute can be set equal to an instance of the Artist class. 
+
+### Normalizing Data and Writing to Files
+
+The Song class should have a method `#slugify` that sanitizes the file name and saves a new file to the `tmp` folder. 
+
+For instance, if the artist's name is Onerepublic and the song is "Counting Stars", the `slufigy` method should save a file called `counting_stars.txt` to the `tmp` folder. The file should contain the string "Onerepublic - Counting Stars".
 
 * The `slugify` method should:
-  * Replace spaces in the song title with underscores and makes every character lower case. 
-  * Uses this slugified version of the title as the name of a new [temporary](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/tempfile/rdoc/Tempfile.html) text (`.txt`) file and saves it in the `tmp/` folder. 
-  * Writes the name of the artist then the name of the song separated by spaces and a dash (`-`) in the file.
+  * Replace spaces in the song title with underscores and make every character lower case. 
+  * **A note on replacing strings in Ruby:** You can the the `.gsub` method to replace content within a Ruby string. For example: 
+
+```ruby
+my_string = "Hi, Ruby Learners"
+my_string.gsub(".", "!")
+=> "Hi, Ruby Learners!"
+```
+* The `slugify` method should also:
+   * Use the slugified version of the title as the name of a new [temporary](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/tempfile/rdoc/Tempfile.html) text (`.txt`) file and save it in the `tmp/` folder inside the directory of this lab. 
+  * Write the name of the artist then the name of the song separated by spaces and a dash (`-`) in the file.
 
 ## Example
 
-So if we have an instance of Artist, and it has a name:
+We have an instance of artist:
 
 ```ruby
 taylor_swift = Artist.new("Taylor Swift")
@@ -55,26 +76,16 @@ blank_space.artist = taylor_swift
 If we call:
 
 ```ruby
-blank_space.serialize
+blank_space.slugify
 ```
 
-The method should serialize the name of the song and create a new file with that name, so the file looks like this:
+The method should slugify the name of the song and create a new file with that name, so the file looks like this:
 
 `blank_space.txt`
 
-Calling `blank_space.serialize` should then write the following in that new file:
+Calling `blank_space.slugify` should then write the following in that new file:
 
 `"Taylor Swift - Blank Space"`
-
-## Tempfiles
-
-To create a new `Tempfile`, call `Tempfile.new` with two arguments – a two-element array of the file name and file extension, and the name of the folder in which the temporary file should live. For example:
-
-```ruby
-file = Tempfile.new(["dog", ".txt"], "tmp")
-file.write("I am a dog!")
-file.close
-```
 
 ## Resources
 * [Ruby Docs](http://www.ruby-doc.org/) - [TempFile](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/tempfile/rdoc/Tempfile.html)
