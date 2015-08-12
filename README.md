@@ -48,6 +48,8 @@ Calling `blank_space.serialize` should then write the following in that new file
 To create a new `Tempfile`, call `Tempfile.new` with two arguments – a two-element array of the file name and file extension, and the name of the folder in which the temporary file should live. For example:
 
 ```ruby
+require 'tempfile'
+
 file = Tempfile.new(["dog", ".txt"], "tmp")
 file.write("I am a dog!")
 file.close
