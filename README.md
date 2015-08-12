@@ -1,43 +1,21 @@
-# OO Data Normalization
+# OO Data Normalization Lab
 
 ## Objectives
 
-1. Understand why we as programmers need to manipulate and format data.
-2. Practice formatting data. 
-3. Introduce the topic of object relations. 
-4. Learn about writing data to files using Ruby. 
+1. Practice formatting data. 
+2. Practice associating objects to one another. 
+3. Practice creating and writing to files with Ruby. 
 
-## Data Normalization
-
-As programmers, it's our job to deliver information to people. We are being entrusted with an enormous responsibility––to handle people's data (whether it's videos, music, insurance information, pictures of cats, etc.) and deliver it to them in a clean, sensical manner. One very common action that you'll likely facilitate as a programmer is that of downloading files, such as audio files. Normal people like their files titled in normal ways. `artistSongxy1288304` doesn't mean anything to the muggles (non-progammers) of the world. In this lab, we'll be taking file names, normalizing them and writing their contents to a file in a `tmp` folder. 
-
-## Writing Data to Files in Ruby
-
-Ruby makes it easy to write data to a file. Ruby has a built-in [File class](http://ruby-doc.org/core-2.2.2/File.html). You can create new temporary files using: 
-
-`Tempfile.new`
-
-The `.new` method can take in a number of arguments. The first argument is an array. The first element of that array is the file name and the second argument of the array is the file extension/type. The second argument is the desired location of the file. Let's take a look: 
-
-```ruby
-my_file = Tempfile.new(["my_new_file", ".txt"], "desktop/my_aswesome_folder")
-```
-
-You can then write to that file using the `.write` method. The `.write` method takes in an argument of the content you want to write the the file. Let's take a look:
-
-```ruby
-my_file.write("some awesome content for my awesome new file")
-```
-
-Use the documentation linked to above, along with the tips outlined here, to solve this lab. 
 
 ## Instructions
 
-This is a test-driven lab. Use the test output and the guidelines below.
+This is a test-driven lab. Use the test output and the guidelines below. Refer back to the previous reading, along with the Ruby documentation on Ruby's [File class](http://ruby-doc.org/core-2.2.2/File.html), to help you. 
 
 ### Associating Songs and Artists
 
-* Make two classes, Song and Artist. Songs have an `artist` attr_accessor (i.e. setter and getter) method. An individual artist's `song` attribute can be set equal to an instance of the Artist class. 
+* Make two classes, `Song` and `Artist`. Songs have an `artist` `attr_accessor` (i.e. setter and getter) method. Artists have a `song` `attr_accessor`. In other words:
+  * An individual artist's `song` attribute can be set equal to an instance of the `Song` class. 
+  * An individual song's `artist` attribute can be set equal to an instance of the Artist class. 
 
 ### Normalizing Data and Writing to Files
 

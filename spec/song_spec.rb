@@ -15,8 +15,7 @@ describe Song do
   end
 
   describe "#slugify" do 
-
-    it "can save a representation of itself to a file" do
+    it "can save a representation of the song instance to a file" do
       song = Song.new
       song.title = "Night Moves"
       song.artist = Artist.new("Bob Seger")
