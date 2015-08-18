@@ -1,22 +1,44 @@
-# OO Data Normalization
-
-![floppy disk](https://s3-us-west-2.amazonaws.com/web-dev-readme-photos/oo-labs/floppy-disk.png)
+# OO Data Normalization Lab
 
 ## Objectives
 
-Make two classes, Song and Artist. The Song class should have a method `#serialize` that saves a new file to the `tmp` folder. For instance, if the artist's name is Onerepublic and the song is "Counting Stars", the serialize method should save a file called `counting_stars.txt` to the `tmp` folder. The file should contain the string "Onerepublic - Counting Stars".
+1. Practice formatting data. 
+2. Practice associating objects to one another. 
+3. Practice creating and writing to files with Ruby. 
+
 
 ## Instructions
 
-* Implement a song class and an artist class. Look at the specs or run your testing suite to see what the classes should look like.
-* Write a `serialize` method in the song class that:
-  * Replaces spaces in the song title with underscores and makes every character lower case.
-  * Uses this serialized version of the title as the name of a new [temporary](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/tempfile/rdoc/Tempfile.html) text (`.txt`) file and saves it in the `tmp/` folder. 
-  * Writes the name of the artist then the name of the song separated by spaces and a dash (`-`) in the file.
+This is a test-driven lab. Use the test output and the guidelines below. Refer back to the previous reading, along with the Ruby documentation on Ruby's [File class](http://ruby-doc.org/core-2.2.2/File.html), to help you. 
+
+### Associating Songs and Artists
+
+* Make two classes, `Song` and `Artist`. Songs have an `artist` `attr_accessor` (i.e. setter and getter) method. Artists have a `song` `attr_accessor`. In other words:
+  * An individual artist's `song` attribute can be set equal to an instance of the `Song` class. 
+  * An individual song's `artist` attribute can be set equal to an instance of the Artist class. 
+
+### Normalizing Data and Writing to Files
+
+The Song class should have a method `#slugify` that sanitizes the file name and saves a new file to the `tmp` folder. 
+
+For instance, if the artist's name is Onerepublic and the song is "Counting Stars", the `slufigy` method should save a file called `counting_stars.txt` to the `tmp` folder. The file should contain the string "Onerepublic - Counting Stars".
+
+* The `slugify` method should:
+  * Replace spaces in the song title with underscores and make every character lower case. 
+  * **A note on replacing strings in Ruby:** You can the the `.gsub` method to replace content within a Ruby string. For example: 
+
+```ruby
+my_string = "Hi, Ruby Learners"
+my_string.gsub(".", "!")
+=> "Hi, Ruby Learners!"
+```
+* The `slugify` method should also:
+   * Use the slugified version of the title as the name of a new [temporary](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/tempfile/rdoc/Tempfile.html) text (`.txt`) file and save it in the `tmp/` folder inside the directory of this lab. 
+  * Write the name of the artist then the name of the song separated by spaces and a dash (`-`) in the file.
 
 ## Example
 
-So if we have an instance of Artist, and it has a name:
+We have an instance of artist:
 
 ```ruby
 taylor_swift = Artist.new("Taylor Swift")
@@ -32,17 +54,19 @@ blank_space.artist = taylor_swift
 If we call:
 
 ```ruby
-blank_space.serialize
+blank_space.slugify
 ```
 
-The method should serialize the name of the song and create a new file with that name, so the file looks like this:
+The method should slugify the name of the song and create a new file with that name, so the file looks like this:
 
 `blank_space.txt`
 
-Calling `blank_space.serialize` should then write the following in that new file:
+Calling `blank_space.slugify` should then write the following in that new file:
 
 `"Taylor Swift - Blank Space"`
 
+<<<<<<< HEAD
+=======
 ## Tempfiles
 
 To create a new `Tempfile`, call `Tempfile.new` with two arguments – a two-element array of the file name and file extension, and the name of the folder in which the temporary file should live. For example:
@@ -55,6 +79,7 @@ file.write("I am a dog!")
 file.close
 ```
 
+>>>>>>> 4437a4ffe3a2fbbc35b1884cb2678f83fc05f45a
 ## Resources
 * [Ruby Docs](http://www.ruby-doc.org/) - [TempFile](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/tempfile/rdoc/Tempfile.html)
 
