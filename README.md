@@ -64,22 +64,16 @@ The method should slugify the name of the song and create a new file with that n
 Calling `blank_space.slugify` should then write the following in that new file:
 
 `"Taylor Swift - Blank Space"`
-
-<<<<<<< HEAD
-=======
 ## Tempfiles
 
 To create a new `Tempfile`, call `Tempfile.new` with two arguments – a two-element array of the file name and file extension, and the name of the folder in which the temporary file should live. For example:
 
 ```ruby
-require 'tempfile'
-
 file = Tempfile.new(["dog", ".txt"], "tmp")
 file.write("I am a dog!")
 file.close
 ```
 
->>>>>>> 4437a4ffe3a2fbbc35b1884cb2678f83fc05f45a
 ## Resources
 * [Ruby Docs](http://www.ruby-doc.org/) - [TempFile](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/tempfile/rdoc/Tempfile.html)
 
