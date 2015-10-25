@@ -28,7 +28,7 @@ For instance, if the artist's name is Onerepublic and the song is "Counting Star
   * **A note on replacing strings in Ruby:** You can the the `.gsub` method to replace content within a Ruby string. For example: 
 
 ```ruby
-my_string = "Hi, Ruby Learners"
+my_string = "Hi, Ruby Learners."
 my_string.gsub(".", "!")
 => "Hi, Ruby Learners!"
 ```
